@@ -25,7 +25,11 @@ for (j in 1:length(urls)) {
 			}
 			precinct.list <- cnty.tmp1$Contests$A
 			precinct.list <- precinct.list[1:k.list]
-	tmp[[j]] <- data.frame(state="Georgia",precinct=precinct.list,rep=do.call(rbind,rep.tmp),dem=do.call(rbind,dem.tmp),other=do.call(rbind,other.tmp)) #Creates list of precincts, by county
+			# Test code to get county name
+				cnty.tmp <- substring(urls[j], regexpr("GA/", urls[j]) +3)
+				county.name <- sub("\\/.*", "", cnty.tmp)
+	tmp[[j]] <- data.frame(state="Georgia",county=county.name,precinct=precinct.list,rep=do.call(rbind,rep.tmp),dem=do.call(rbind,dem.tmp),other=do.call(rbind,other.tmp)) #Creates list of precincts, by county
 }
+
 
 
