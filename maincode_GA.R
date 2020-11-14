@@ -1,5 +1,7 @@
+# Will eventually replace with full list of URLs
 urls <- c("https://results.enr.clarityelections.com//GA/Appling/105371/269554/json/","https://results.enr.clarityelections.com//GA/Sumter/105499/270350/json/")
 
+# For looping through three types of ballots
 votetype.json <- c("Election_Day_Votes", "Absentee_by_Mail_Votes", "Advanced_Voting_Votes", "Provisional_Votes")
 
 tmp <- list()
@@ -23,7 +25,7 @@ for (j in 1:length(urls)) {
 			}
 			precinct.list <- cnty.tmp1$Contests$A
 			precinct.list <- precinct.list[1:k.list]
-	tmp[[j]] <- data.frame(state="Georgia",precinct=precinct.list,rep=do.call(rbind,rep.tmp),dem=do.call(rbind,dem.tmp),other=do.call(rbind,other.tmp))
+	tmp[[j]] <- data.frame(state="Georgia",precinct=precinct.list,rep=do.call(rbind,rep.tmp),dem=do.call(rbind,dem.tmp),other=do.call(rbind,other.tmp)) #Creates list of precincts, by county
 }
 
 
