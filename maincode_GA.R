@@ -38,3 +38,5 @@ for (j in 1:length(urls)) {
 
 
 
+# We also need precinct shapefiles to match on.
+# https://doi.org/10.7910/DVN/XPW7T7
