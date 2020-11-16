@@ -16,7 +16,7 @@ for (j in 1:length(urls)) {
 			dem.tmp <- list()
 			rep.tmp <- list()
 			other.tmp <- list()
-			k.list <- length(cnty.tmp$Contests$A) # Last row is the county total...
+			k.list <- length(cnty.tmp$Contests$A) - 1 # Last row is the county total...
 		for (k in 1:k.list) {
 			# cnty.tmp.tmp1 <- unlist(cnty.tmp1$Contests$V[[k]][1])
 			# cnty.tmp.tmp2 <- unlist(cnty.tmp2$Contests$V[[k]][1])
@@ -35,10 +35,10 @@ for (j in 1:length(urls)) {
 			# Test code to get county name
 				cnty.tmp <- substring(urls[j], regexpr("GA/", urls[j]) +3)
 				county.name <- sub("\\/.*", "", cnty.tmp)
-	tmp[[j]] <- data.frame(state="Georgia",county=county.name,precinct=precinct.list,rep=do.call(rbind,rep.tmp),dem=do.call(rbind,dem.tmp),other=do.call(rbind,other.tmp)) #Creates list of precincts, by county
+	tmp[[j]] <- data.frame(state="Georgia",county=rep(county.name,k.list),precinct=precinct.list,rep=do.call(rbind,rep.tmp),dem=do.call(rbind,dem.tmp),other=do.call(rbind,other.tmp)) #Creates list of precincts, by county
 }
 
-
+do.call(rbind, tmp)
 
 # We also need precinct shapefiles to match on.
 # https://doi.org/10.7910/DVN/XPW7T7
