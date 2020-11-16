@@ -38,7 +38,7 @@ for (j in 1:length(urls)) {
 	tmp[[j]] <- data.frame(state="Georgia",county=rep(county.name,k.list),precinct=precinct.list,rep=do.call(rbind,rep.tmp),dem=do.call(rbind,dem.tmp),other=do.call(rbind,other.tmp)) #Creates list of precincts, by county
 }
 
-do.call(rbind, tmp)
+write.csv(do.call(rbind, tmp), "/Users/user/Google Drive/GitHub/Georgia-2020/GA_precincts_pres.csv", row.names=F)
 
 # We also need precinct shapefiles to match on.
 # https://doi.org/10.7910/DVN/XPW7T7
