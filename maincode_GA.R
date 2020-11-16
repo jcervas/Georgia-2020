@@ -1,6 +1,8 @@
 # Will eventually replace with full list of URLs
-urls <- c("https://results.enr.clarityelections.com//GA/Appling/105371/269554/json/","https://results.enr.clarityelections.com//GA/Sumter/105499/270350/json/")
-urls <- read.table("https://raw.githubusercontent.com/jcervas/Georgia-2020/main/Georgia%202020%20Vote%20Links.txt")
+# urls <- c("https://results.enr.clarityelections.com//GA/Appling/105371/269554/json/","https://results.enr.clarityelections.com//GA/Sumter/105499/270350/json/")
+urls <- read.csv("https://raw.githubusercontent.com/jcervas/Georgia-2020/main/Georgia%202020%20Vote%20Links.csv", header=F)
+urls <- unlist(urls)
+
 # For looping through three types of ballots
 votetype.json <- c("Election_Day_Votes", "Absentee_by_Mail_Votes", "Advanced_Voting_Votes", "Provisional_Votes") # No longer necessary, ALL.json has all the data aggregated. Keep in case we want to view differences
 
