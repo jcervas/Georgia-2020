@@ -16,7 +16,7 @@ for (j in 1:length(urls)) {
 			dem.tmp <- list()
 			rep.tmp <- list()
 			other.tmp <- list()
-			k.list <- length(cnty.tmp$Contests$A) - 1 # Last row is the county total...
+			k.list <- length(cnty.tmp$Contests$A) # Last row is the county total...
 		for (k in 1:k.list) {
 			# cnty.tmp.tmp1 <- unlist(cnty.tmp1$Contests$V[[k]][1])
 			# cnty.tmp.tmp2 <- unlist(cnty.tmp2$Contests$V[[k]][1])
