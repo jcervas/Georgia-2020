@@ -1,6 +1,6 @@
 # Will eventually replace with full list of URLs
 urls <- c("https://results.enr.clarityelections.com//GA/Appling/105371/269554/json/","https://results.enr.clarityelections.com//GA/Sumter/105499/270350/json/")
-
+urls <- read.table("https://raw.githubusercontent.com/jcervas/Georgia-2020/main/Georgia%202020%20Vote%20Links.txt")
 # For looping through three types of ballots
 votetype.json <- c("Election_Day_Votes", "Absentee_by_Mail_Votes", "Advanced_Voting_Votes", "Provisional_Votes") # No longer necessary, ALL.json has all the data aggregated. Keep in case we want to view differences
 
@@ -10,7 +10,7 @@ for (j in 1:length(urls)) {
 		# cnty.tmp2 <- fromJSON(paste0(urls[j], votetype.json[2], ".json"))
 		# cnty.tmp3 <- fromJSON(paste0(urls[j], votetype.json[3], ".json"))
 		# cnty.tmp4 <- fromJSON(paste0(urls[j], votetype.json[4], ".json"))
-		cnty.tmp <- fromJSON(paste0(urls[j],"ALL.json"))
+		cnty.tmp <- jsonlite::fromJSON(paste0(urls[j],"ALL.json"))
 			dem.tmp <- list()
 			rep.tmp <- list()
 			other.tmp <- list()
