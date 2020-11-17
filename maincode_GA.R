@@ -1,3 +1,5 @@
+
+source("https://raw.githubusercontent.com/jcervas/R-Functions/main/GERRYfunctions.R")
 # Will eventually replace with full list of URLs
 # urls <- c("https://results.enr.clarityelections.com//GA/Appling/105371/269554/json/","https://results.enr.clarityelections.com//GA/Sumter/105499/270350/json/")
 urls <- read.csv("https://raw.githubusercontent.com/jcervas/Georgia-2020/main/Georgia%202020%20Vote%20Links.csv", header=F)
@@ -41,7 +43,7 @@ for (j in 1:length(urls)) {
 GA_precincts <- do.call(rbind, tmp)
 head(GA_precincts)
 GA_precincts$precinct <- toupper(GA_precincts$precinct)
-
+GA_precincts$dem_TP <- as.integer(100*round(replaceNA(two_party(GA_precincts$dem,GA_precincts$rep)),1))
 write.csv(GA_precincts, "/Users/user/Google Drive/GitHub/Georgia-2020/GA_precincts_pres.csv", row.names=F)
 
 # We also need precinct shapefiles to match on.
