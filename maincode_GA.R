@@ -42,7 +42,7 @@ GA_precincts <- do.call(rbind, tmp)
 head(GA_precincts)
 GA_precincts$precinct <- toupper(GA_precincts$precinct)
 
-write.csv(, "/Users/user/Google Drive/GitHub/Georgia-2020/GA_precincts_pres.csv", row.names=F)
+write.csv(GA_precincts, "/Users/user/Google Drive/GitHub/Georgia-2020/GA_precincts_pres.csv", row.names=F)
 
 # We also need precinct shapefiles to match on.
 # https://doi.org/10.7910/DVN/XPW7T7
