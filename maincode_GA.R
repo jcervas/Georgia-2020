@@ -49,11 +49,9 @@ write.csv(GA_precincts, "/Users/user/Google Drive/GitHub/Georgia-2020/GA_precinc
 # We also need precinct shapefiles to match on.
 # https://doi.org/10.7910/DVN/XPW7T7
 
-library(rgdal)
+# library(rgdal)
 u <- "https://raw.githubusercontent.com/jcervas/Georgia-2020/main/ga_2020_general.json"
-downloader::download(url = u, destfile = "/tmp/ga.GeoJSON")
-ga <- readOGR(dsn = "/tmp/ga.GeoJSON", layer = "OGRGeoJSON")
-
-
-sumter <- FROM_GeoJson("/Users/user/Downloads/SUMTER.json")
-plot(sumter)
+# downloader::download(url = u, destfile = "/tmp/ga.GeoJSON")
+# ga <- readOGR(dsn = "/tmp/ga.GeoJSON", layer = "OGRGeoJSON")
+ga <- readOGR(dsn = u, layer = "ga_2020_general")
+plot(ga)
